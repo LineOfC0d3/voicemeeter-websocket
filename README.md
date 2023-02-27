@@ -13,7 +13,7 @@ This also makes it possible to control VoiceMeeter instances on other PCs with V
 ### Requirements
 Any Version of VoiceMeeter [Standard](https://vb-audio.com/Voicemeeter/)/[Banana](https://vb-audio.com/Voicemeeter/banana.htm)/[Potato](https://vb-audio.com/Voicemeeter/potato.htm)
 
-[.NET Desktop Runtime 6.0.14](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
+[Python](https://www.python.org/downloads/)
 
 ### Development
-Developed in .NET 6.0
+Developed with Python 3.11
