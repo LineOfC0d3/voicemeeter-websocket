@@ -15,5 +15,8 @@ Any Version of VoiceMeeter [Standard](https://vb-audio.com/Voicemeeter/)/[Banana
 
 [Python](https://www.python.org/downloads/)
 
+### External Packages
+[Python Wrapper for Voicemeeter API](https://github.com/onyx-and-iris/voicemeeter-api-python)
+
 ### Development
 Developed with Python 3.11
