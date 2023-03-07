@@ -1,24 +1,29 @@
 import asyncio
 import websockets
 from voicemeeterlib.remote import Remote
-from websockets import server
+from websockets import WebSocketServer as WebSocket
+import json
+import voicemeeter_controller
 
 
 class WebSocketServer:
-    def __init__(self, vm):
-        self.vm = vm
-        self.mute = False
+    def __init__(self, vm: voicemeeter_controller):
+        self.vc = vm
 
-    async def message_handler(self, websocket):
-        while True:
+    async def message_handler(self, websocket: WebSocket):
+        is_running: bool = True
+        while is_running:
             try:
                 message = await websocket.recv()
-                print(message)
-                await websocket.send(message)
-                self.vm.strip[4].label = message
+                error = self.vc.interpret_json(message)
+                if error:
+                    websocket.send(error)
             except websockets.ConnectionClosedOK:
-                break
+                is_running = False
+        await websocket.close()
 
     async def run(self):
+        stop = asyncio.Future()
+
         async with websockets.serve(self.message_handler, "", 8001):
-            await asyncio.Future()  # run forever
+            await stop  # run forever
