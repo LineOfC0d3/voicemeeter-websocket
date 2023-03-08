@@ -16,14 +16,16 @@ class WebSocketServer:
             try:
                 message = await websocket.recv()
                 error = self.vc.interpret_json(message)
-                if error:
-                    websocket.send(error)
+                if not error:
+                    error = "valid"
+                await websocket.send(error)
             except websockets.ConnectionClosedOK:
                 is_running = False
         await websocket.close()
 
     async def run(self):
-        stop = asyncio.Future()
-
         async with websockets.serve(self.message_handler, "", 8001):
-            await stop  # run forever
+            try:
+                await asyncio.Future()  # run forever
+            except asyncio.CancelledError:
+                print("Websocket loop terminated. Exiting!")
