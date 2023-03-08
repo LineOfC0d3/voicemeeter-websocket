@@ -12,6 +12,7 @@ class WebSocketServer:
 
     async def message_handler(self, websocket: WebSocket):
         is_running: bool = True
+        await websocket.send("connected")
         while is_running:
             try:
                 message = await websocket.recv()

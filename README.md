@@ -58,20 +58,20 @@ Plase keep in mind that some features are only available in certain VoiceMeeter 
       "label": "test",
       "mc": true,
       "k": 1,
-      "bass": 0.0,
-      "mid": 0.0,
-			"fx_1": 0,
-			"fx_2": 0,
+      "reverb": 0,
+      "delay": 0,
+			"fx1": 0,
+			"fx2": 0,
       "pan_x": 0.0,
       "pan_y": 0.0,
       "color_x": 0.0,
       "color_y": 0.0,
       "fx_x": 0.0,
       "fx_y": 0.0,
-			"post_reverb": true,
-			"post_delay": true,
-			"post_fx_1": true,
-			"post_fx_2": true,
+			"postreverb": true,
+			"postdelay": true,
+			"postfx1": true,
+			"postfx2": true,
       "denoiser": 0, //not supported by wrapper
 			"fade_to":
 			{
@@ -99,9 +99,9 @@ Plase keep in mind that some features are only available in certain VoiceMeeter 
       },
       "eq_virtual":
       {
+        "bass": 0.0,
+        "mid": 0.0,
         "treble": 0.0,
-        "reverb": 0,
-        "delay": 0,
       },
       "eq_physical": //not supported by wrapper
       {
